@@ -1,0 +1,9 @@
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/Experimental.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/Nightly.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/Continuous.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/SchizophreniaCraft.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/PACKAGE.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/ZERO_CHECK.dir
