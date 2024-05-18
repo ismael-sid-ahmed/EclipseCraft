@@ -48,25 +48,24 @@ unsigned int vertexShaderCompile()
 
 void shaderProgramCompile(unsigned int vertex, unsigned int fragment)
 {
-    unsigned int vertexShader = vertexShaderCompile();
-    unsigned int fragmentShader = fragmentShaderCompile();
+    unsigned int* vertexShader = vertexShaderCompile();
+    unsigned int* fragmentShader = fragmentShaderCompile();
 
     unsigned int shaderProgram;
     shaderProgram = glCreateProgram();
 
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
+    glAttachShader(&shaderProgram, &vertexShader);
+    glAttachShader(&shaderProgram, &fragmentShader);
     glLinkProgram(shaderProgram);
     
     glUseProgram(shaderProgram);
 
-    vertex = vertexShader;
-    fragment = fragmentShader;
+    vertex = &vertexShader;
+    fragment = &fragmentShader;
 }
 
 const char* importShader(char *shaderLocation)
 {
-    char *shaderText = "";
     FILE* shaderFile;
     shaderFile = fopen(shaderLocation, "r");
     if (shaderFile == NULL)
@@ -75,13 +74,18 @@ const char* importShader(char *shaderLocation)
     }
 
     char *buffer = "";
+    char shaderText[128] = "";
+
+    void* ptrToShader = malloc(sizeof(shaderText));
 
     while(fgets(buffer, sizeof(shaderFile), shaderFile))
     {
         strcat(shaderText, buffer);
     }
 
+    ptrToShader = shaderText;
+
     fclose(shaderFile);
     
-    return shaderText;
+    return ptrToShader;
 }
