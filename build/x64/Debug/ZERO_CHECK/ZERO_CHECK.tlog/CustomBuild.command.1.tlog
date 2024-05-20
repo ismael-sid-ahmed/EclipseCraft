@@ -1,6 +1,6 @@
-^C:\USERS\ISMAEL\DESKTOP\VISUAL STUDIO PROJECTS\SCHIZOPHRENIACRAFT\SCHIZOPHRENIACRAFT\BUILD\CMAKEFILES\9ADAE7340F0630FCADE7952C6C3E5846\GENERATE.STAMP.RULE
+^C:\USERS\ISMAEL\DESKTOP\VISUAL STUDIO PROJECTS\ECLIPSECRAFT\BUILD\CMAKEFILES\664A12A8CDEF6999500FE7EACBDE7552\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/SchizophreniaCraft.sln"
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/EclipseCraft.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

@@ -28,6 +28,7 @@ unsigned int vertexShaderCompile()
 {
     const char *vertexShaderSource = importShader("vertex.txt");
     unsigned int vertexShader;
+    //glcreateshader() is somehow changing the value of vertexShaderSource. Maybe it's due to undefined behaviour
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
@@ -46,27 +47,35 @@ unsigned int vertexShaderCompile()
     return vertexShader;
 }
 
-void shaderProgramCompile(unsigned int vertex, unsigned int fragment)
+unsigned int shaderProgramCompile()
 {
-    unsigned int vertexShader = vertexShaderCompile();
-    unsigned int fragmentShader = fragmentShaderCompile();
+    unsigned int* vertexShader = vertexShaderCompile();
+    unsigned int* fragmentShader = fragmentShaderCompile();
 
-    unsigned int shaderProgram;
-    shaderProgram = glCreateProgram();
+    unsigned int shaderProgram = glCreateProgram();
 
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
     glLinkProgram(shaderProgram);
-    
-    glUseProgram(shaderProgram);
 
-    vertex = vertexShader;
-    fragment = fragmentShader;
+    int success;
+    char infoLog[512];
+
+    //Debug
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+    if (!success) {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        printf("Shader linking error %s", infoLog);
+    }
+
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    return shaderProgram;
 }
 
 const char* importShader(char *shaderLocation)
 {
-    char *shaderText = "";
     FILE* shaderFile;
     shaderFile = fopen(shaderLocation, "r");
     if (shaderFile == NULL)
@@ -75,13 +84,16 @@ const char* importShader(char *shaderLocation)
     }
 
     char *buffer = "";
+    char shaderText[1024] = "";
 
     while(fgets(buffer, sizeof(shaderFile), shaderFile))
     {
         strcat(shaderText, buffer);
     }
 
+    char* defShader = strdup(shaderText);
+
     fclose(shaderFile);
     
-    return shaderText;
+    return defShader;
 }

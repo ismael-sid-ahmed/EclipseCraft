@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\build\CMakeFiles\9adae7340f0630fcade7952c6c3e5846\NightlyMemoryCheck.rule">
+    <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\CMakeFiles\664a12a8cdef6999500fe7eacbde7552\NightlyMemoryCheck.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\build\CMakeFiles\NightlyMemoryCheck" />
+    <None Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\CMakeFiles\NightlyMemoryCheck" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{3B640F64-AADA-3C3E-A9EC-FEAD18784FFC}</UniqueIdentifier>
+      <UniqueIdentifier>{29D18511-7A8B-3E0D-8875-6CE3DE2576AF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

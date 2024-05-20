@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft
-BuildDirectory: C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build
+SourceDirectory: C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft
+BuildDirectory: C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe" "C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft"
+ConfigureCommand: "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe" "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft"
 MakeCommand: "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

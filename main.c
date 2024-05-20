@@ -2,6 +2,7 @@
 
 #include "Shaders.h"
 #include "Buffers.h"
+#include "texture.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -13,7 +14,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //Window Creation
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "SchizophreniaCraft", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Eclipse Craft", NULL, NULL);
 
     if (window == NULL)
     {
@@ -30,27 +31,64 @@ int main()
         return -1;
     }
 
-    VAO();
-    VBO();
-    EBO();
+    //TextureProcess();
 
-    unsigned int vertexShader = 0;
-    unsigned int fragmentShader = 0;
+    unsigned int shaderProgram = shaderProgramCompile();
 
-    shaderProgramCompile(vertexShader, fragmentShader);
+    VertexAndBufferSetup();
+
+    unsigned int texture;
+    glGenTextures(1, &texture);
+
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
+    int width, height, nrChannels;
+    unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        printf("Failed to load texture");
+    }
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0); 
+
+    glBindVertexArray(0);
+
+    stbi_image_free(data);
 
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        glBindTexture(GL_TEXTURE_2D, texture);
+
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    //Resource deallocation
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
+    glDeleteProgram(shaderProgram);
 
     glfwTerminate();
     return 0;

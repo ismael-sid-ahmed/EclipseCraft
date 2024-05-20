@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\build\Debug\SchizophreniaCraft.exe</FullPath>
+      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\Debug\EclipseCraft.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\SchizophreniaCraft\SchizophreniaCraft\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -1,3 +1,2 @@
-void VAO();
-void VBO();
-void EBO();
+unsigned int VBO, VAO, EBO;
+void VertexAndBufferSetup();

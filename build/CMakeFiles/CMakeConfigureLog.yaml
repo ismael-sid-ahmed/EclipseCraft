@@ -24,9 +24,9 @@ events:
       The output was:
       0
       MSBuild-Version 17.9.5+33de0b227 für .NET Framework
-      Der Buildvorgang wurde am 10.05.2024 18:47:40 gestartet.
+      Der Buildvorgang wurde am 19.05.2024 14:22:14 gestartet.
       
-      Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" auf Knoten "1" (Standardziele).
+      Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" auf Knoten "1" (Standardziele).
       PrepareForBuild:
         Das Verzeichnis "Debug\\" wird erstellt.
         Die strukturierte Ausgabe ist aktiviert. Die Formatierung der Compilerdiagnose spiegelt die Fehlerhierarchie wider. Weitere Informationen finden Sie unter https://aka.ms/cpp/structured-output.
@@ -39,7 +39,7 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         Die Datei "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" wird gelöscht.
         Aktualisieren des Timestamps von "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
-      Die Erstellung von Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" ist abgeschlossen (Standardziele).
+      Die Erstellung von Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\3.28.0-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" ist abgeschlossen (Standardziele).
       
       Der Buildvorgang wurde erfolgreich ausgeführt.
           0 Warnung(en)
           0 Fehler
       
-      Verstrichene Zeit 00:00:00.91
+      Verstrichene Zeit 00:00:01.21
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -61,7 +61,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/3.28.0-msvc1/CompilerIdC/CompilerIdC.exe
+        C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/3.28.0-msvc1/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "try_compile-v1"
@@ -72,48 +72,49 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/CMakeScratch/TryCompile-9upwnh"
-      binary: "C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/CMakeScratch/TryCompile-9upwnh"
+      source: "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/CMakeScratch/TryCompile-3lae5k"
+      binary: "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/CMakeScratch/TryCompile-3lae5k"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/CMakeScratch/TryCompile-9upwnh'
+        Change Dir: 'C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/CMakeScratch/TryCompile-3lae5k'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3c364.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3281c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild-Version 17.9.5+33de0b227 für .NET Framework
-        Der Buildvorgang wurde am 10.05.2024 18:47:42 gestartet.
+        Der Buildvorgang wurde am 19.05.2024 14:22:16 gestartet.
         
-        Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9upwnh\\cmTC_3c364.vcxproj" auf Knoten "1" (Standardziele).
+        Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3lae5k\\cmTC_3281c.vcxproj" auf Knoten "1" (Standardziele).
         PrepareForBuild:
-          Das Verzeichnis "cmTC_3c364.dir\\Debug\\" wird erstellt.
+          Das Verzeichnis "cmTC_3281c.dir\\Debug\\" wird erstellt.
           Die strukturierte Ausgabe ist aktiviert. Die Formatierung der Compilerdiagnose spiegelt die Fehlerhierarchie wider. Weitere Informationen finden Sie unter https://aka.ms/cpp/structured-output.
-          Das Verzeichnis "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9upwnh\\Debug\\" wird erstellt.
-          Das Verzeichnis "cmTC_3c364.dir\\Debug\\cmTC_3c364.tlog\\" wird erstellt.
+          Das Verzeichnis "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3lae5k\\Debug\\" wird erstellt.
+          Das Verzeichnis "cmTC_3281c.dir\\Debug\\cmTC_3281c.tlog\\" wird erstellt.
         InitializeBuildStatus:
-          "cmTC_3c364.dir\\Debug\\cmTC_3c364.tlog\\unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
-          Aktualisieren des Timestamps von "cmTC_3c364.dir\\Debug\\cmTC_3c364.tlog\\unsuccessfulbuild".
+          "cmTC_3281c.dir\\Debug\\cmTC_3281c.tlog\\unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+          Aktualisieren des Timestamps von "cmTC_3281c.dir\\Debug\\cmTC_3281c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX86\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c364.dir\\Debug\\\\" /Fd"cmTC_3c364.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX86\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3281c.dir\\Debug\\\\" /Fd"cmTC_3281c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++-Optimierungscompiler Version 19.39.33522 für x64
           Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c364.dir\\Debug\\\\" /Fd"cmTC_3c364.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3281c.dir\\Debug\\\\" /Fd"cmTC_3281c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9upwnh\\Debug\\cmTC_3c364.exe" /INCREMENTAL /ILK:"cmTC_3c364.dir\\Debug\\cmTC_3c364.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/CMakeScratch/TryCompile-9upwnh/Debug/cmTC_3c364.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ismael/Desktop/Visual Studio Projects/SchizophreniaCraft/SchizophreniaCraft/build/CMakeFiles/CMakeScratch/TryCompile-9upwnh/Debug/cmTC_3c364.lib" /MACHINE:X64  /machine:x64 cmTC_3c364.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_3c364.vcxproj -> C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9upwnh\\Debug\\cmTC_3c364.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX86\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3lae5k\\Debug\\cmTC_3281c.exe" /INCREMENTAL /ILK:"cmTC_3281c.dir\\Debug\\cmTC_3281c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/CMakeScratch/TryCompile-3lae5k/Debug/cmTC_3281c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/CMakeScratch/TryCompile-3lae5k/Debug/cmTC_3281c.lib" /MACHINE:X64  /machine:x64 cmTC_3281c.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_3281c.vcxproj -> C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3lae5k\\Debug\\cmTC_3281c.exe
         FinalizeBuildStatus:
-          Die Datei "cmTC_3c364.dir\\Debug\\cmTC_3c364.tlog\\unsuccessfulbuild" wird gelöscht.
-          Aktualisieren des Timestamps von "cmTC_3c364.dir\\Debug\\cmTC_3c364.tlog\\cmTC_3c364.lastbuildstate".
-        Die Erstellung von Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\SchizophreniaCraft\\SchizophreniaCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9upwnh\\cmTC_3c364.vcxproj" ist abgeschlossen (Standardziele).
+          Die Datei "cmTC_3281c.dir\\Debug\\cmTC_3281c.tlog\\unsuccessfulbuild" wird gelöscht.
+          Aktualisieren des Timestamps von "cmTC_3281c.dir\\Debug\\cmTC_3281c.tlog\\cmTC_3281c.lastbuildstate".
+        Die Erstellung von Projekt "C:\\Users\\Ismael\\Desktop\\Visual Studio Projects\\EclipseCraft\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3lae5k\\cmTC_3281c.vcxproj" ist abgeschlossen (Standardziele).
         
         Der Buildvorgang wurde erfolgreich ausgeführt.
             0 Warnung(en)
             0 Fehler
         
-        Verstrichene Zeit 00:00:01.05
+        Verstrichene Zeit 00:00:01.01
         
       exitCode: 0
 ...
