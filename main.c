@@ -4,6 +4,12 @@
 #include "Buffers.h"
 #include "texture.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+#define WIDTH = 1280;
+#define HEIGHT = 720;
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 int main()
@@ -14,7 +20,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //Window Creation
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Eclipse Craft", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Eclipse Craft", NULL, NULL);
 
     if (window == NULL)
     {
@@ -39,17 +45,16 @@ int main()
 
     unsigned int texture;
     glGenTextures(1, &texture);
-
     glBindTexture(GL_TEXTURE_2D, texture);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
     int width, height, nrChannels;
-    unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+    unsigned char *data = stbi_load("texture.jpg", &width, &height, &nrChannels, 0);
 
     if (data)
     {
@@ -60,11 +65,6 @@ int main()
     {
         printf("Failed to load texture");
     }
-
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0); 
-
-    glBindVertexArray(0);
 
     stbi_image_free(data);
 
