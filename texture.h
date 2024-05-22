@@ -1,2 +1,1 @@
-void TextureProcess();
-void textureImport();
+unsigned int TextureProcess();

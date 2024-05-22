@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x86</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{854C3AC9-041C-3B8C-9B3B-64239342CC04}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>cglm</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cglm.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cglm-0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cglm.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cglm-0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">cglm.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">cglm-0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">cglm.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">cglm-0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_USRDLL;NDEBUG;CGLM_EXPORTS;CMAKE_INTDIR="Debug";cglm_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_USRDLL;NDEBUG;CGLM_EXPORTS;CMAKE_INTDIR=\"Debug\";cglm_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW/$(Configuration);C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/Debug/cglm.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/Debug/cglm-0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR="Release";cglm_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR=\"Release\";cglm_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW/$(Configuration);C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/Release/cglm.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/Release/cglm-0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR="MinSizeRel";cglm_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR=\"MinSizeRel\";cglm_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW/$(Configuration);C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/MinSizeRel/cglm.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/MinSizeRel/cglm-0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR="RelWithDebInfo";cglm_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_USRDLL;CGLM_EXPORTS;CMAKE_INTDIR=\"RelWithDebInfo\";cglm_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/GLFW/$(Configuration);C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb;C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/stb/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/RelWithDebInfo/cglm.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/RelWithDebInfo/cglm-0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/cglm/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build" --check-stamp-file "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\cglm.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/cglm/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build" --check-stamp-file "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\cglm.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/cglm/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build" --check-stamp-file "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\cglm.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/vendor/cglm/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft" "-BC:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build" --check-stamp-file "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.28\Templates\CPackConfig.cmake.in;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\cglm.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\euler.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\affine.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\io.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\quat.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\cam.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\vec2.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\ivec2.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\vec3.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\ivec3.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\vec4.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\ivec4.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat2.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat2x3.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat2x4.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat3.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat3x2.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat3x4.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat4.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat4x2.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\mat4x3.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\plane.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\frustum.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\box.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\project.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\sphere.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\ease.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\curve.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\bezier.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\ray.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\affine2d.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\ortho_lh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\ortho_lh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\ortho_rh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\ortho_rh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\persp_lh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\persp_lh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\persp_rh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\persp_rh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\view_lh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\view_lh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\view_rh_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\view_rh_zo.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\project_no.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\src\clipspace\project_zo.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\ZERO_CHECK.vcxproj">
+      <Project>{DB221813-A5E9-3F14-9060-14F813F164A1}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

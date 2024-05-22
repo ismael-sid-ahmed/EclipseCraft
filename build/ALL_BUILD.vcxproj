@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\GLFW\include;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\glad;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\KHR;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\stb;C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\vendor\cglm\include\cglm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -176,6 +176,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\EclipseCraft.vcxproj">
       <Project>{BAD515E5-8AF5-384C-97D7-FDF1CA083F0D}</Project>
       <Name>EclipseCraft</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\cglm.vcxproj">
+      <Project>{854C3AC9-041C-3B8C-9B3B-64239342CC04}</Project>
+      <Name>cglm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

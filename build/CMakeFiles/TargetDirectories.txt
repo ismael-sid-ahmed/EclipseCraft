@@ -5,5 +5,11 @@ C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/Nig
 C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/EclipseCraft.dir
 C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/PACKAGE.dir
 C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/INSTALL.dir
 C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/cglm.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/PACKAGE.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/RUN_TESTS.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/INSTALL.dir
+C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm/CMakeFiles/ALL_BUILD.dir
