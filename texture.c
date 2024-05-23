@@ -4,7 +4,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-unsigned int TextureProcess()
+unsigned int TextureProcess(const char* textureLoc)
 {
     unsigned int texture;
     const int *ptrToTexture = (const int*)&texture;
@@ -18,7 +18,7 @@ unsigned int TextureProcess()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     int width, height, nrChannels;
-    unsigned char *data = stbi_load("texture.jpg", &width, &height, &nrChannels, 0);
+    unsigned char *data = stbi_load(textureLoc, &width, &height, &nrChannels, 0);
 
     if (data)
     {
