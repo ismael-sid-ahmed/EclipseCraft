@@ -1,1 +1,1 @@
-unsigned int TextureProcess();
+unsigned int *TextureProcess(const char* textureLoc);

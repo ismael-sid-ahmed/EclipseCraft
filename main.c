@@ -5,16 +5,17 @@
 #include "texture.h"
 #include "cglm.h"
 
-#define WIDTH = 1280;
-#define HEIGHT = 720;
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
+int globalWidth = 1280;
+int globalHeight = 720;
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void ProcessInput(GLFWwindow* window, vec3 cameraPos, vec3 cameraFront, vec3 cameraTarget, vec3 up);
+void ProcessInput(GLFWwindow* window);
 
 vec3 cameraPos = {0.0f, 0.0f, 3.0f};
 vec3 cameraFront = {0.0f, 0.0f, -1.0f};
-vec3 cameraTarget = {0.0f, 0.0f, 0.0f};
 vec3 up = {0.0f, 1.0f, 0.0f};
 
 float deltaTime = 0.0f;
@@ -34,7 +35,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //Window Creation
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Eclipse Craft", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(globalWidth, globalHeight, "Eclipse Craft", NULL, NULL);
 
     if (window == NULL)
     {
@@ -58,26 +59,30 @@ int main()
 
     unsigned int shaderProgram = shaderProgramCompile();
     VertexAndBufferSetup();
-    unsigned int texture = TextureProcess("wall.jpg");
-    unsigned int texture1 = TextureProcess("epstein.png");
+    int *texture = TextureProcess("wall.jpg");
+
+    glUseProgram(shaderProgram);
+
+    glUniform1i(glGetUniformLocation(&texture, "texture"), 0);
     
     firstMouse = true;
 
     while (!glfwWindowShouldClose(window))
-    {
-        ProcessInput(window);
+    {   
+        printf("ERROR: %i - ", glGetError());
 
+        //TODO: GL_INVALID_OPERATION fix
         float currentFrame = (float)glfwGetTime();
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;  
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        ProcessInput(window);
+
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);     
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, &texture);
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, &texture1);
 
         glUseProgram(shaderProgram);
 
@@ -88,9 +93,10 @@ int main()
         glm_mat4_identity(proj);
         glm_mat4_identity(view);
 
+        glm_perspective(glm_rad(45), 1280 / 720, 0.1f, 100.0f, proj);
+
         vec3 buffer_lookat;
         glm_vec3_add(cameraPos, cameraFront, buffer_lookat);
-
         glm_lookat(cameraPos, buffer_lookat, up, view);
 
         int projLoc = glGetUniformLocation(shaderProgram, "projection");
@@ -99,6 +105,7 @@ int main()
         int viewLoc = glGetUniformLocation(shaderProgram, "view");
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, view);
 
+        //Chunk rendering
         glBindVertexArray(VAO);
 
         for(int i = 0; i < 16; i++)
@@ -118,7 +125,7 @@ int main()
 
         glfwSwapBuffers(window);
         glfwPollEvents();
-        printf("%fX %fY %fZ\n", cameraPos[0], cameraPos[1], cameraPos[2]);
+        printf("%f X %f Y %f Z\n", cameraPos[0], cameraPos[1], cameraPos[2]);
     }
 
     //Resource deallocation
@@ -134,11 +141,13 @@ int main()
 void framebuffer_size_callback(GLFWwindow* window, int height, int width)
 {
     glViewport(0, 0, width, height);
+    globalWidth = width;
+    globalHeight = height;
 }
 
 void ProcessInput(GLFWwindow* window)
 {
-    float camSpeed = 0.05f * deltaTime;
+    float camSpeed = 0.5f * deltaTime;
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
@@ -151,23 +160,28 @@ void ProcessInput(GLFWwindow* window)
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        glm_cross(cameraFront, up, cameraPos);
-        glm_normalize(cameraPos);
-        glm_vec3_muladds(cameraPos, -camSpeed, cameraPos);
+        vec3 result;
+        glm_cross(cameraFront, up, result);
+        glm_normalize(result);
+        glm_vec3_muladds(result, -camSpeed, cameraPos);
     }
         
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        glm_cross(cameraFront, up, cameraPos);
-        glm_normalize(cameraPos);
-        glm_vec3_muladds(cameraPos, camSpeed, cameraPos);
+        vec3 result;
+        glm_cross(cameraFront, up, result);
+        glm_normalize(result);
+        glm_vec3_muladds(result, camSpeed, cameraPos);
     }
         
     
 }
 
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
+    float xpos = (float)xposIn;
+    float ypos = (float)yposIn;
+
     if (firstMouse)
     {
         lastX = xpos;
@@ -185,13 +199,13 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     yOffset *= sensitivity;
 
     yaw += xOffset;
-    pitch += yOffset;
+    pitch -= yOffset;
 
     if(pitch > 89.0f)
         pitch = 89.0f;
     if(pitch < -89.0f)
         pitch = -89.0f;
     
-    vec3 direction = {cos(glm_rad(yaw)), sin(glm_rad(pitch)), sin(glm_rad(yaw)) * cos(glm_rad(pitch))};
-    glm_normalize_to(direction, cameraFront);
+    vec3 front = {cos(glm_rad(yaw)) * cos(glm_rad(pitch)), sin(glm_rad(pitch)), sin(glm_rad(yaw)) * cos(glm_rad(pitch))};
+    glm_normalize_to(front, cameraFront);
 }
