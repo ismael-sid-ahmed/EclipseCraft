@@ -65,7 +65,7 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
-        ProcessInput(window, cameraPos, cameraFront, cameraTarget, up);
+        ProcessInput(window);
 
         float currentFrame = (float)glfwGetTime();
         deltaTime = currentFrame - lastFrame;
