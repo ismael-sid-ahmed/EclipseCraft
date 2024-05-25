@@ -6,7 +6,7 @@ find_package(OpenGL 4.6 REQUIRED)
 include(CTest)
 enable_testing()
 
-include_directories(vendor/GLFW/include vendor/glad/ vendor/KHR vendor/stb vendor/cglm/include/cglm vendor/freetype/include)
+include_directories(vendor/GLFW/include vendor/glad/ vendor/KHR vendor/stb vendor/cglm/include/cglm vendor/freetype/include vendor/Nuklear)
 link_directories(vendor/GLFW vendor/stb)
 
 add_executable(EclipseCraft main.c glad.c Buffers.c Shaders.c texture.c)
