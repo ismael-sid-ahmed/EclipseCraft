@@ -54,7 +54,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vc
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cglm", "vendor\cglm\cglm.vcxproj", "{854C3AC9-041C-3B8C-9B3B-64239342CC04}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cglm", "vendor\Nuklear\cglm.vcxproj", "{854C3AC9-041C-3B8C-9B3B-64239342CC04}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB221813-A5E9-3F14-9060-14F813F164A1} = {DB221813-A5E9-3F14-9060-14F813F164A1}
 	EndProjectSection

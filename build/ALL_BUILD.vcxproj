@@ -177,7 +177,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{BAD515E5-8AF5-384C-97D7-FDF1CA083F0D}</Project>
       <Name>EclipseCraft</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\cglm\cglm.vcxproj">
+    <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\vendor\Nuklear\cglm.vcxproj">
       <Project>{854C3AC9-041C-3B8C-9B3B-64239342CC04}</Project>
       <Name>cglm</Name>
     </ProjectReference>

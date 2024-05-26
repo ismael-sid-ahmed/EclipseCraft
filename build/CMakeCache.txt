@@ -321,7 +321,7 @@ OPENGL_glu_LIBRARY:STRING=glu32
 SITE:STRING=DESKTOP-7LBKHFP
 
 //Value Computed by CMake
-cglm_BINARY_DIR:STATIC=C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/cglm
+cglm_BINARY_DIR:STATIC=C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/build/vendor/Nuklear
 
 //Value Computed by CMake
 cglm_IS_TOP_LEVEL:STATIC=OFF
