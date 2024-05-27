@@ -1,5 +1,8 @@
 #include "debug.h"
 
+#include "glad.h"
+#include "glfw3.h"
+
 #define MAX_VERTEX_BUFFER 512 * 1024
 #define MAX_ELEMENT_BUFFER 128 * 1024
 #define NK_INCLUDE_FIXED_TYPES
@@ -26,25 +29,24 @@ void DebugUIInit(GLFWwindow* window)
     nk_glfw3_font_stash_end(&glfw);}
 }
 
-void DebugUI()
+void DebugUI(float camX, float camY, float camZ)
 {
     nk_glfw3_new_frame(&glfw);
 
-    if (nk_begin(ctx, "Anything window", nk_rect(0, 0, 200, 250), 
+    if (nk_begin(ctx, "Debug window", nk_rect(50, 50, 200, 125), 
     NK_WINDOW_BORDER|NK_WINDOW_MOVABLE|NK_WINDOW_SCALABLE|
     NK_WINDOW_MINIMIZABLE|NK_WINDOW_TITLE))
         {
-            nk_layout_row_dynamic(ctx, 120, 1);
-            nk_label(ctx, "Hello world!", NK_TEXT_CENTERED);
+            nk_layout_row_dynamic(ctx, 20, 1);
+            nk_value_float(ctx, "X: ", camX);
             
-            nk_layout_row_dynamic(ctx, 50, 1);
-            nk_label(ctx, "Hello world!", NK_TEXT_LEFT);
-            
-            nk_layout_row_static(ctx, 30, 80, 1);
-            if (nk_button_label(ctx, "AnyButton"))
-                fprintf(stdout, "button pressed\n");
+            nk_layout_row_dynamic(ctx, 20, 1);
+            nk_value_float(ctx, "Y: ", camY);
+
+            nk_layout_row_dynamic(ctx, 20, 1);
+            nk_value_float(ctx, "Z: ", camZ);
         }
         nk_end(ctx);
 
-    nk_glfw3_render(NK_ANTI_ALIASING_ON);
+        nk_glfw3_render(NK_ANTI_ALIASING_ON);
 }

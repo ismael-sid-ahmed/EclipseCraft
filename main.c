@@ -4,7 +4,6 @@
 #include "Buffers.h"
 #include "texture.h"
 #include "cglm.h"
-#include "debug.h"
 
 int globalWidth = 1280;
 int globalHeight = 720;
@@ -24,6 +23,10 @@ float pitch = -90.0f;
 float lastX = 400, lastY = 300;
 
 bool firstMouse;
+
+bool debugWin = false;
+
+#include "debug.h"
 
 int main()
 {
@@ -61,7 +64,7 @@ int main()
 
     glUseProgram(shaderProgram);
 
-    glUniform1i(glGetUniformLocation(&texture, "texture"), 0);
+    glUniform1i(glGetUniformLocation(&texture, "texture1"), 0);
     
     firstMouse = true;
     
@@ -108,6 +111,9 @@ int main()
         //Chunk rendering
         glBindVertexArray(VAO);
 
+        if(debugWin)
+            DebugUI(cameraPos[0], cameraPos[1], cameraPos[2]);
+
         for(int i = 0; i < 16; i++)
         {
             for(int j = 0; j < 16; j++)
@@ -126,11 +132,10 @@ int main()
             }
         }
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
         printf("%f X %f Y %f Z\n", cameraPos[0], cameraPos[1], cameraPos[2]);
 
-        DebugUI();
+        glfwSwapBuffers(window);
+        glfwPollEvents();
     }
 
     //Resource deallocation
@@ -178,8 +183,12 @@ void ProcessInput(GLFWwindow* window)
         glm_normalize(result);
         glm_vec3_muladds(result, camSpeed, cameraPos);
     }
-        
-    
+
+    if (glfwGetKey(window, GLFW_KEY_F2) && debugWin == false)
+    {
+        debugWin = true;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
 }
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)

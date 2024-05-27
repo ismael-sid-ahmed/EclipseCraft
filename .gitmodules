@@ -4,6 +4,3 @@
 [submodule "vendor/cglm"]
 	path = vendor/cglm
 	url = https://github.com/recp/cglm.git
-[submodule "vendor/Nuklear"]
-	path = vendor/Nuklear
-	url = https://github.com/Immediate-Mode-UI/Nuklear.git
