@@ -1,9 +1,21 @@
 #include <stdio.h>
 
+#include "app.h"
 #include "Shaders.h"
 #include "Buffers.h"
 #include "texture.h"
 #include "cglm.h"
+
+#include "vui.h"
+
+#include "vui_opengl.h"
+#include "vui_opengl.c"
+
+#include "vui_stbtruetype.h"
+#include "vui_stbtruetype.c"
+
+#include "vui_stbtruetype_manager.h"
+#include "vui_stbtruetype_manager.c"
 
 int globalWidth = 1280;
 int globalHeight = 720;
@@ -28,6 +40,29 @@ bool debugWin = false;
 
 #include "debug.h"
 
+typedef struct App
+{
+    GLFWwindow* window;
+    VuiGlyphTextureId ascii_glyph_texture_id;
+    VuiGlyphTextureId etc_glyph_texture_id;
+    VuiFontId default_font_id;
+    VuiImageId images[5];
+    VuiStk(char) font_file_bytes;
+    uint64_t last_frame_start_time;
+    float dt;
+    struct {
+        GLuint tex_ascii_glyph_texture;
+        GLuint tex_etc_glyph_texture;
+        GLuint tex_image;
+        GLuint program;
+        float projection[16]
+    } opengl;
+};
+
+typedef struct App App;
+
+App app;
+
 int main()
 {
     glfwInit();
@@ -37,6 +72,7 @@ int main()
 
     //Window Creation
     GLFWwindow* window = glfwCreateWindow(globalWidth, globalHeight, "Eclipse Craft", NULL, NULL);
+    app.window = window;
 
     if (window == NULL)
     {
@@ -67,8 +103,6 @@ int main()
     glUniform1i(glGetUniformLocation(&texture, "texture1"), 0);
     
     firstMouse = true;
-    
-    DebugUIInit(window);
 
     while (!glfwWindowShouldClose(window))
     {   
