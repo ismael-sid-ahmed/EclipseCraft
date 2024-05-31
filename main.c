@@ -6,6 +6,15 @@
 #include "texture.h"
 #include "cglm.h"
 
+#define GL_GLEXT_PROTOTYPES
+
+#define STB_RECT_PACK_IMPLEMENTATION
+#include "stb_rect_pack.h"
+
+#define STB_TRUETYPE_IMPLEMENTATION
+#include "stb_truetype.h"
+
+/*
 #include "vui.h"
 
 #include "vui_opengl.h"
@@ -16,6 +25,8 @@
 
 #include "vui_stbtruetype_manager.h"
 #include "vui_stbtruetype_manager.c"
+
+*/
 
 int globalWidth = 1280;
 int globalHeight = 720;
@@ -40,7 +51,7 @@ bool debugWin = false;
 
 #include "debug.h"
 
-typedef struct App
+/*typedef struct App
 {
     GLFWwindow* window;
     VuiGlyphTextureId ascii_glyph_texture_id;
@@ -55,13 +66,14 @@ typedef struct App
         GLuint tex_etc_glyph_texture;
         GLuint tex_image;
         GLuint program;
-        float projection[16]
+        float projection[16];
     } opengl;
 };
 
 typedef struct App App;
 
 App app;
+*/
 
 int main()
 {
@@ -72,7 +84,7 @@ int main()
 
     //Window Creation
     GLFWwindow* window = glfwCreateWindow(globalWidth, globalHeight, "Eclipse Craft", NULL, NULL);
-    app.window = window;
+    //app.window = window;
 
     if (window == NULL)
     {
@@ -145,8 +157,29 @@ int main()
         //Chunk rendering
         glBindVertexArray(VAO);
 
-        if(debugWin)
-            DebugUI(cameraPos[0], cameraPos[1], cameraPos[2]);
+        /*
+        //Debug UI
+            vui_opengl_init();
+
+            vui_stbtt_glyph_texture_clear_styled_glyphs(app.etc_glyph_texture_id);
+
+            vui_frame_start(vui_false, app.dt);
+
+            vui_window_start(0, VuiVec2_init(1280, 720));
+            vui_row_layout;
+
+            static VuiVec2 size = {0};
+            static VuiVec2 offset = {50.f, 50.f};
+            vui_scope_width(vui_fill_len);
+            vui_scope_height(vui_fill_len);
+            vui_scroll_view_start(vui_sib_id, VuiScrollFlags_vhr, vui_ss.scroll_view);
+
+            vui_opengl_render(app.window);
+
+            vui_window_end;
+            vui_frame_end;
+
+        */
 
         for(int i = 0; i < 16; i++)
         {
