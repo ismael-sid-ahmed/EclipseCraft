@@ -19,6 +19,9 @@
     <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\debug.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\voxel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\CMakeLists.txt" />

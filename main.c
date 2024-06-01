@@ -6,6 +6,8 @@
 #include "texture.h"
 #include "cglm.h"
 
+#include "voxel.h"
+
 #define GL_GLEXT_PROTOTYPES
 
 #define STB_RECT_PACK_IMPLEMENTATION
@@ -77,6 +79,8 @@ App app;
 
 int main()
 {
+    RegionGen();
+
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);

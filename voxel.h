@@ -1,29 +1,19 @@
-//Tree structure
+/*
+    The voxel system will store all world data in a Generic Tree Structure. Whether they are voxels, sub-chuncks or chunks will
+    get determined by the height in the tree. 
+*/
 
-struct Voxel
+struct Node
 {
-    double blockID;
-    double X;
-    double Y;
-    double Z;
+    double X, Y, Z;
+    int height;
+    struct Node** Children;
 };
 
-typedef struct Voxel Voxel;
+typedef struct Node WorldNode;
 
-struct Chunk
-{
-    double X;
-    double Z;
-};
+//Data structure functions
 
-typedef struct Chunk Chunk;
 
-struct Region
-{
-    double X;
-    double Z;
-};
-
-typedef struct Region Region;
-
-void ChunkGen();
+void RegionGen();
+void ChunkGen(WorldNode* root, double X, double Z);

@@ -11,7 +11,7 @@ vendor/freetype/include vendor/raygui/src vendor/raylib vendor/vui vendor/vui/ba
 
 link_directories(vendor/GLFW vendor/stb)
 
-add_executable(EclipseCraft main.c glad.c Buffers.c Shaders.c texture.c debug.c)
+add_executable(EclipseCraft main.c glad.c Buffers.c Shaders.c texture.c debug.c voxel.c)
 
 target_link_libraries(EclipseCraft glfw3 opengl32)
 

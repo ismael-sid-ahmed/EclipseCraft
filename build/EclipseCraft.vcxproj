@@ -319,6 +319,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\Shaders.c" />
     <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\texture.c" />
     <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\debug.c" />
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\voxel.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\build\ZERO_CHECK.vcxproj">
