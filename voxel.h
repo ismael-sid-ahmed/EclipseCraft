@@ -3,11 +3,13 @@
     get determined by the height in the tree. 
 */
 
+
+
 struct Node
 {
     double X, Y, Z;
     int height;
-    struct Node** Children;
+    struct Node** Children; //Array of pointers (Dynamic)
 };
 
 typedef struct Node WorldNode;

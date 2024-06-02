@@ -8,7 +8,8 @@
           "-g",
           "${file}",
           "-o",
-          "${fileDirname}\${fileBasenameNoExtension}.exe"
+          "${fileDirname}\${fileBasenameNoExtension}.exe",
+          "-std:c99"
         ],
         "options": {
           "cwd": "C:\MinGW64\bin"
@@ -21,7 +22,8 @@
         "args": [
           "${file}",
           "-o",
-          "${fileDirname}\${fileBasenameNoExtension}.exe"
+          "${fileDirname}\${fileBasenameNoExtension}.exe",
+          "-std:c99"
         ],
         "options": {
           "cwd": "C:\MinGW64\bin"

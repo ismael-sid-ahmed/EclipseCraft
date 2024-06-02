@@ -29,14 +29,15 @@ void RegionGen() //32x32 chunks (1024)
 void ChunkGen(WorldNode* root, double X, double Z) //16x16 voxels
 {
     WorldNode* chunk = (WorldNode*)malloc(sizeof(WorldNode));
+    chunk->Children = (WorldNode*)malloc(98304*sizeof(WorldNode));
     chunk->X = X;
     chunk->Z = Z;
     
-    for (int m = 0; m < 24; m++) //Chunk
+    for (int m = 0; m < 24; m++) //Chunk (24 subs)
     {
         
         chunk->Y = m;
-        for (int i = 0; i < 16; i++) //Sub-Chunk
+        for (int i = 0; i < 16; i++) //Sub-Chunk (4096 vox)
         {
             for (int j = 0; j < 16; j++)
             {
@@ -47,7 +48,8 @@ void ChunkGen(WorldNode* root, double X, double Z) //16x16 voxels
                     voxel->Y = j;
                     voxel->Z = k;
 
-                    chunk->Children[i+j+k] = &voxel;
+                    chunk->Children[i+j+k] = (WorldNode*)malloc(sizeof(WorldNode));
+                    chunk->Children[i+j+k] = voxel;
                 }
             }
         }
