@@ -36,7 +36,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void ProcessInput(GLFWwindow* window);
 
-vec3 cameraPos = {0.0f, 0.0f, 3.0f};
+vec3 cameraPos = {0.0f, 0.0f, 0.0f};
 vec3 cameraFront = {0.0f, 0.0f, -1.0f};
 vec3 up = {0.0f, 1.0f, 0.0f};
 
@@ -79,7 +79,6 @@ App app;
 
 int main()
 {
-    RegionGen();
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -185,25 +184,15 @@ int main()
 
         */
 
-        for(int i = 0; i < 16; i++)
-        {
-            for(int j = 0; j < 16; j++)
-            {
-                for(int k = 0; k < 64; k++)
-                {
-                mat4 model;
-                glm_mat4_identity(model);
-                glm_translate(model, (vec3){i, -k, j});
-                
-                int modelLoc = glGetUniformLocation(shaderProgram, "model");
-                glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
+        printf("%f X %f Y %f Z\n", cameraPos[0], cameraPos[1], cameraPos[2]);
 
-                glDrawArrays(GL_TRIANGLES, 0, 36);
-                }
+        for (int i = cameraPos[0]; i < cameraPos[0]+8; i++)
+        {
+            for (int j = cameraPos[2]; j < cameraPos[2]+8; j++)
+            {
+                ChunkGen(i*16, j*16, shaderProgram);
             }
         }
-
-        printf("%f X %f Y %f Z\n", cameraPos[0], cameraPos[1], cameraPos[2]);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -3,6 +3,11 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+#include "glad.h"
+#include "glfw3.h"
+
+#include "cglm.h"
+
 /*Design:
     Chunks divided into sub chunks, this will contain blocks.
 
@@ -11,47 +16,31 @@
 
 */
 
-void RegionGen() //32x32 chunks (1024)
+typedef struct Chunk
 {
-    WorldNode root;
-    root.height = 0;
-    
-    for (int i = 0; i < 32; i++)
-    {
-        for (int j = 0; j < 32; j++)
-        {
-            ChunkGen(&root, i, j);
-        }
-    }
-    
-}
+    double X, Z;
+} Chunk;
 
-void ChunkGen(WorldNode* root, double X, double Z) //16x16 voxels
+
+void ChunkGen(int X, int Z, unsigned int shaderProgram)
 {
-    WorldNode* chunk = (WorldNode*)malloc(sizeof(WorldNode));
-    chunk->Children = (WorldNode*)malloc(98304*sizeof(WorldNode));
-    chunk->X = X;
-    chunk->Z = Z;
-    
-    for (int m = 0; m < 24; m++) //Chunk (24 subs)
+    for (int i = 0; i < 16; i++)
     {
-        
-        chunk->Y = m;
-        for (int i = 0; i < 16; i++) //Sub-Chunk (4096 vox)
+        for (int j = 0; j < 16; j++)
         {
-            for (int j = 0; j < 16; j++)
+            for (int k = 0; k < 16; k++)
             {
-                for (int k = 0; k < 16; k++)
-                {
-                    WorldNode* voxel = (WorldNode*)malloc(sizeof(WorldNode));
-                    voxel->X = i;
-                    voxel->Y = j;
-                    voxel->Z = k;
+                mat4 model;
+                glm_mat4_identity(model);
+                glm_translate(model, (vec3){j+X, -i, k+Z});
+                
+                int modelLoc = glGetUniformLocation(shaderProgram, "model");
+                glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
 
-                    chunk->Children[i+j+k] = (WorldNode*)malloc(sizeof(WorldNode));
-                    chunk->Children[i+j+k] = voxel;
-                }
+                glDrawArrays(GL_TRIANGLES, 0, 36);
             }
         }
     }
+
+
 }
