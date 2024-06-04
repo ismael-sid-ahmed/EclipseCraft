@@ -119,6 +119,8 @@ int main()
     
     firstMouse = true;
 
+    InitialChunkGenCaller();
+
     while (!glfwWindowShouldClose(window))
     {   
         printf("ERROR: %i - ", glGetError());
@@ -186,13 +188,9 @@ int main()
 
         printf("%f X %f Y %f Z\n", cameraPos[0], cameraPos[1], cameraPos[2]);
 
-        for (int i = cameraPos[0]; i < cameraPos[0]+8; i++)
-        {
-            for (int j = cameraPos[2]; j < cameraPos[2]+8; j++)
-            {
-                ChunkGen(i*16, j*16, shaderProgram);
-            }
-        }
+        ChunkRender(cameraPos[0], cameraPos[2], shaderProgram);
+
+        ChunkRenderCaller();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

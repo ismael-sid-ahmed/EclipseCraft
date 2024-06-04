@@ -3,4 +3,13 @@
     get determined by the height in the tree. 
 */
 
-void ChunkGen(int X, int Z, unsigned int shaderProgram);
+typedef struct chunk
+{
+    double X, Z;
+}Chunk;
+
+void ChunkGenCaller(int X, int Z);
+void ChunkGen(int X, int Z);
+void ChunkRender(int X, int Z, unsigned int shaderProgram);
+void InitialChunkGenCaller();
+void ChunkRenderCaller();
