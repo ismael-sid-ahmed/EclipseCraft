@@ -11,14 +11,14 @@ vendor/freetype/include vendor/raygui/src vendor/raylib vendor/vui vendor/vui/ba
 
 link_directories(vendor/GLFW vendor/stb)
 
-add_executable(EclipseCraft main.c glad.c Buffers.c Shaders.c texture.c debug.c voxel.c)
+file(GLOB_RECURSE GAME_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/game/src/*.c")
+file(GLOB_RECURSE PLATFORM_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/platform/src/*.c")
+
+add_executable(EclipseCraft ${GAME_SOURCES} ${PLATFORM_SOURCES})
 
 target_link_libraries(EclipseCraft glfw3 opengl32)
 
 add_subdirectory(vendor/cglm vendor/Nuklear)
-
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/frag.txt DESTINATION ${CMAKE_BINARY_DIR}/Debug)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/vertex.txt DESTINATION ${CMAKE_BINARY_DIR}/Debug)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
