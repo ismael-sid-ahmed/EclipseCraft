@@ -22,6 +22,8 @@
 
 */
 
+
+
 void InitialChunkGenCaller()
 {
     FILE* fptr;
@@ -51,6 +53,8 @@ void ChunkGen(int X, int Z)
     newChunk->X = X;
     newChunk->Z = Z;
 
+    VoxelChunkGen(newChunk);
+
     FILE* fptr;
 
     fptr = fopen("world.dat", "a");
@@ -59,6 +63,50 @@ void ChunkGen(int X, int Z)
     fclose(fptr);
 
     free(newChunk);
+}
+
+Voxel* VoxelChunkGen(Chunk* chunk)
+{
+    chunk->ArrayX = (Voxel*)malloc(sizeof(Voxel)*16); //Gefährilch
+    chunk->ArrayY = (Voxel*)malloc(sizeof(Voxel)*384); //Gefährilch
+    chunk->ArrayZ = (Voxel*)malloc(sizeof(Voxel)*16); //Gefährilch
+
+    for (int x = 0; x < 16; x++)
+    {
+        for (int y = 0; y < 16; y++)
+        {
+            for (int z = 0; z < 384; z++)
+            {
+                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
+
+                if (isAir == 1)
+                {
+                    voxel->blockTypeID = 0;
+                    voxel->transparent = 1;
+                }
+                else
+                {
+                    voxel->blockTypeID = 1;
+                    voxel->transparent = 0;
+                }
+
+                chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
+                chunk->ArrayX[x] = voxel;
+                chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
+                chunk->ArrayY[y] = voxel;
+                chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
+                chunk->ArrayZ[z] = voxel;
+            }
+        }
+    }
+}
+
+int isAir(Voxel* voxel)
+{
+    int seed = 135681364961324;
+    srand(seed);
+
+    return rand() & 1;
 }
 
 void ChunkLoader() //Load needed chunks once into memory
@@ -83,7 +131,6 @@ void ChunkLoader() //Load needed chunks once into memory
             //Allocate memory
             chunkArr->size++;
             chunkArr->array = (Chunk*)realloc(chunkArr->array, chunkArr->size * sizeof(Chunk));
-            chunkArr->size++;
         }
         chunkArr->array[i].X = chunk->X;
         chunkArr->array[i].Z = chunk->Z;
@@ -105,21 +152,12 @@ void ChunkRenderCaller(unsigned int shaderProgram)
 
 void ChunkRender(int X, int Z, unsigned int shaderProgram)
 {
-    for (int i = 0; i < 16; i++) //Height
-    {
-        for (int j = 0; j < 16; j++) //X
-        {
-            for (int k = 0; k < 16; k++) //Z
-            {
-                mat4 model;
-                glm_mat4_identity(model);
-                glm_translate(model, (vec3){j+X, -i, k+Z});
+    mat4 model;
+    glm_mat4_identity(model);
+    glm_translate(model, (vec3){0, 0, 0});
                 
-                int modelLoc = glGetUniformLocation(shaderProgram, "model");
-                glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
+    int modelLoc = glGetUniformLocation(shaderProgram, "model");
+    glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
 
-                glDrawArrays(GL_TRIANGLES, 0, 36);
-            }
-        }
-    }
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }

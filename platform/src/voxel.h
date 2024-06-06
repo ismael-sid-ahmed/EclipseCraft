@@ -3,9 +3,18 @@
     get determined by the height in the tree. 
 */
 
+typedef struct voxel
+{
+    int blockTypeID;
+    int transparent;
+}Voxel;
+
 typedef struct chunk
 {
     double X, Z;
+    Voxel** ArrayX;
+    Voxel** ArrayY;
+    Voxel** ArrayZ;
 }Chunk;
 
 typedef struct chunkArr
@@ -13,6 +22,9 @@ typedef struct chunkArr
     size_t size;
     Chunk* array;
 }ChunkArray;
+
+Voxel* VoxelChunkGen(Chunk* chunk);
+int isAir(Voxel* voxel);
 
 void ChunkGenCaller(int X, int Z);
 void ChunkGen(int X, int Z);

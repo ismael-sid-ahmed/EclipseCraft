@@ -17,23 +17,24 @@ bool firstMouse = true;
 
 void Camera(GLuint shaderProgram)
 {
-        mat4 proj;
-        mat4 view;
+    deltaTimeCalc();   
+    mat4 proj;
+    mat4 view;
 
-        glm_mat4_identity(proj);
-        glm_mat4_identity(view);
+    glm_mat4_identity(proj);
+    glm_mat4_identity(view);
 
-        glm_perspective(glm_rad(45), 1280 / 720, 0.1f, 100.0f, proj);
+    glm_perspective(glm_rad(45), 1280 / 720, 0.1f, 100.0f, proj);
 
-        vec3 buffer_lookat;
-        glm_vec3_add(cameraPos, cameraFront, buffer_lookat);
-        glm_lookat(cameraPos, buffer_lookat, up, view);
+    vec3 buffer_lookat;
+    glm_vec3_add(cameraPos, cameraFront, buffer_lookat);
+    glm_lookat(cameraPos, buffer_lookat, up, view);
 
-        int projLoc = glGetUniformLocation(shaderProgram, "projection");
-        glUniformMatrix4fv(projLoc, 1, GL_FALSE, proj);
+    int projLoc = glGetUniformLocation(shaderProgram, "projection");
+    glUniformMatrix4fv(projLoc, 1, GL_FALSE, proj);
 
-        int viewLoc = glGetUniformLocation(shaderProgram, "view");
-        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, view);
+    int viewLoc = glGetUniformLocation(shaderProgram, "view");
+    glUniformMatrix4fv(viewLoc, 1, GL_FALSE, view);
 }
 
 void CameraMove(GLFWwindow* window)
