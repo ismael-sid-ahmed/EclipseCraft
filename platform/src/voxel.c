@@ -53,12 +53,33 @@ void ChunkGen(int X, int Z)
     newChunk->X = X;
     newChunk->Z = Z;
 
-    VoxelChunkGen(newChunk);
-
     FILE* fptr;
 
+    VoxelChunkGen(newChunk);
+
     fptr = fopen("world.dat", "a");
-    fwrite(newChunk, sizeof(Chunk), 1, fptr);
+
+    //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
+
+    for(int i = 0; i < 16; i++)
+    {
+        Voxel* ptrToArr = newChunk->ArrayX[i];
+        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+    }
+
+    //Y Array
+    for(int i = 0; i < 384; i++)
+    {
+        Voxel* ptrToArr = newChunk->ArrayY[i];
+        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+    }
+
+    //Z Array
+    for(int i = 0; i < 16; i++)
+    {
+        Voxel* ptrToArr = newChunk->ArrayZ[i];
+        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+    }
 
     fclose(fptr);
 
@@ -67,9 +88,9 @@ void ChunkGen(int X, int Z)
 
 Voxel* VoxelChunkGen(Chunk* chunk)
 {
-    chunk->ArrayX = (Voxel*)malloc(sizeof(Voxel)*16); //Gefährilch
-    chunk->ArrayY = (Voxel*)malloc(sizeof(Voxel)*384); //Gefährilch
-    chunk->ArrayZ = (Voxel*)malloc(sizeof(Voxel)*16); //Gefährilch
+    chunk->ArrayX = (Voxel*)calloc(16, sizeof(Voxel)); //Gefährilch
+    chunk->ArrayY = (Voxel*)calloc(384, sizeof(Voxel)); //Gefährilch
+    chunk->ArrayZ = (Voxel*)calloc(16, sizeof(Voxel)); //Gefährilch
 
     for (int x = 0; x < 16; x++)
     {
@@ -90,11 +111,11 @@ Voxel* VoxelChunkGen(Chunk* chunk)
                     voxel->transparent = 0;
                 }
 
-                chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
+                //chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
                 chunk->ArrayX[x] = voxel;
-                chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
+                //chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
                 chunk->ArrayY[y] = voxel;
-                chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
+                //chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
                 chunk->ArrayZ[z] = voxel;
             }
         }
