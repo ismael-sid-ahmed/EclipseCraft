@@ -24,7 +24,7 @@ typedef struct chunkArr
 }ChunkArray;
 
 Voxel* VoxelChunkGen(Chunk* chunk);
-int isAir(Voxel* voxel);
+int isAir();
 
 void ChunkGenCaller(int X, int Z);
 void ChunkGen(int X, int Z);

@@ -8,6 +8,7 @@
 #include "glfw3.h"
 
 #include "cglm.h"
+#include <errno.h>
 
 #define CHUNK_RENDER_DISTANCE 4
 #define MAX_CHUNKS 32
@@ -94,13 +95,13 @@ Voxel* VoxelChunkGen(Chunk* chunk)
 
     for (int x = 0; x < 16; x++)
     {
-        for (int y = 0; y < 16; y++)
+        for (int z = 0; z < 16; z++)
         {
-            for (int z = 0; z < 384; z++)
+            for (int y = 0; y < 384; y++)
             {
                 Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
 
-                if (isAir == 1)
+                if (isAir() == 1)
                 {
                     voxel->blockTypeID = 0;
                     voxel->transparent = 1;
@@ -122,45 +123,45 @@ Voxel* VoxelChunkGen(Chunk* chunk)
     }
 }
 
-int isAir(Voxel* voxel)
+int isAir()
 {
-    int seed = 135681364961324;
+    int seed = time(NULL);
     srand(seed);
 
-    return rand() & 1;
+    return rand() % 2;
 }
 
-void ChunkLoader() //Load needed chunks once into memory
+bool shouldChunkRender(double playerX, double playerZ) //Guck für den Chunk wo den Spieler steht welchem Chunks gerendert werden mussen.
+{
+    double xChunk = playerX / 16;
+    double zChunk = playerZ / 16;
+    double lastxChunk;
+    double lastzChunk;
+
+    if (xChunk != lastxChunk)
+    {
+        ChunkLoader();
+    }
+
+    lastxChunk = playerX / 16;
+    lastzChunk = playerZ / 16;
+}
+
+void ChunkLoader() //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
 {
     FILE* fptr;
 
     fptr = fopen("world.dat", "r");
 
-    Chunk* chunk = (Chunk*)malloc(sizeof(Chunk));
-    ChunkArray* chunkArr = (ChunkArray*)malloc(sizeof(ChunkArray));
-    size_t cnt_chunks =  0;
+    //Chunk
+    Chunk* chunk;
+    Voxel voxel;
 
-    chunkArr->size = INITIAL_CHUNK_ARRAY_SIZE;
-    chunkArr->array = (Chunk*)malloc(sizeof(Chunk)*INITIAL_CHUNK_ARRAY_SIZE);
+    chunk = (Chunk*)malloc(sizeof(Chunk));
 
-    int i = 0;
-
-    while(cnt_chunks=fread(chunk, sizeof(Chunk), 1, fptr))
+    while (fread(&voxel, sizeof(voxel), 1, fptr) == 1)
     {
-        if (i >= chunkArr->size)
-        {
-            //Allocate memory
-            chunkArr->size++;
-            chunkArr->array = (Chunk*)realloc(chunkArr->array, chunkArr->size * sizeof(Chunk));
-        }
-        chunkArr->array[i].X = chunk->X;
-        chunkArr->array[i].Z = chunk->Z;
-        i++;
-    }
-
-    for (int j = 0; j < i; j++)
-    {
-        printf("%dX %dZ\n", chunkArr->array[j].X, chunkArr->array[j].X);
+        printf("block: %d\n", voxel.blockTypeID);
     }
 
     fclose(fptr);
@@ -168,7 +169,9 @@ void ChunkLoader() //Load needed chunks once into memory
 
 void ChunkRenderCaller(unsigned int shaderProgram)
 {
-    
+    //Jeder Mal, dass den Spieler zu einem anderem Chunk bewegt wird den ChunkLoader Funktion angeruft.
+
+
 }
 
 void ChunkRender(int X, int Z, unsigned int shaderProgram)
