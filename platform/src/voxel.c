@@ -152,7 +152,7 @@ bool shouldChunkRender(double playerX, double playerZ) //Guck für den Chunk wo 
     lastzChunk = playerZ / 16;
 }
 
-void ChunkLoader(double X, double Y) //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
+void ChunkLoader(double X, double Z) //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
 {
     FILE* fptr;
 
@@ -162,22 +162,35 @@ void ChunkLoader(double X, double Y) //Lad alle benötigte Chunks hoch zum Arbei
     Chunk** loadedChunks;
     Voxel* voxel;
 
-    loadedChunks = (Chunk*)malloc((CHUNK_RENDER_DISTANCE*CHUNK_RENDER_DISTANCE) * sizeof(Chunk));
+    voxel = (Voxel*)malloc(sizeof(Voxel));
+
+    loadedChunks = (Chunk*)malloc(sizeof(Chunk));
+    
+    //Array initializations
+    loadedChunks[0] = (Chunk*)malloc(sizeof(Chunk));
 
     int i = 0;
-    double lastChunkX, lastChunkZ = 0;
-    while (fread(voxel, sizeof(voxel), 1, fptr) == 1) //Problem: It's reading pointers insted of values
+    double lastChunk = -1;
+    while (fread(voxel, sizeof(voxel), 1, fptr) == 1)
     {
-        loadedChunks[i]->ArrayX[i] = (Voxel*)malloc(sizeof(Voxel));
-        loadedChunks[i]->ArrayX[i] = voxel;
+        printf("%d", i/16);
 
-        if (voxel->chunkX != lastChunkX || voxel->chunkZ != lastChunkZ)
+        if (i/16 != lastChunk) //
         {
+            calloc(loadedChunks, (i/16));
             loadedChunks[i/16] = (Chunk*)malloc(sizeof(Chunk));
+            loadedChunks[i/16]->ArrayX = (Voxel*)malloc(16*sizeof(Voxel));
+            loadedChunks[i/16]->ArrayY = (Voxel*)malloc(384*sizeof(Voxel));
+            loadedChunks[i/16]->ArrayZ = (Voxel*)malloc(16*sizeof(Voxel));
         }
 
-        i++;
+        if (loadedChunks[i/16]->ArrayX[i])
 
+        loadedChunks[i/16]->ArrayX[i] = (Voxel*)malloc(sizeof(Voxel)); //Memory Leak. Even though the memory gets dynamically allocated, it has a limit
+        loadedChunks[i/16]->ArrayX[i] = voxel;
+
+        lastChunk = i/16;
+        i++;
     }
 
     fclose(fptr);
