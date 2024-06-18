@@ -16,11 +16,11 @@
 #define INITIAL_CHUNK_ARRAY_SIZE 2
 
 /*Design:
-    Chunks divided into sub chunks, this will contain blocks.
-
-    The chunks shall be stored into a file (format yet to be determined) for each region (16 chunk radius)
-    The structure would be a binary tree.
-
+    The chunks will get generated with their respective
+    voxels inside. Then only the voxels will get serialized
+    into a file. When the voxels get loaded once again into
+    memory, they will have inside an identifier for their
+    position in the chunk and their respective chunk coords.
 */
 
 
@@ -62,24 +62,22 @@ void ChunkGen(int X, int Z)
 
     //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
 
+    //Problems: It's most probably writing pointers instead of values into the file.
     for(int i = 0; i < 16; i++)
     {
-        Voxel* ptrToArr = newChunk->ArrayX[i];
-        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+        fwrite(newChunk->ArrayX[i], sizeof(Voxel), 1, fptr);
     }
 
     //Y Array
     for(int i = 0; i < 384; i++)
     {
-        Voxel* ptrToArr = newChunk->ArrayY[i];
-        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+        fwrite(newChunk->ArrayY[i], sizeof(Voxel), 1, fptr);
     }
 
     //Z Array
     for(int i = 0; i < 16; i++)
     {
-        Voxel* ptrToArr = newChunk->ArrayZ[i];
-        fwrite(ptrToArr, sizeof(Voxel), 1, fptr);
+        fwrite(newChunk->ArrayZ[i], sizeof(Voxel), 1, fptr);
     }
 
     fclose(fptr);
@@ -100,6 +98,13 @@ Voxel* VoxelChunkGen(Chunk* chunk)
             for (int y = 0; y < 384; y++)
             {
                 Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
+
+                voxel->chunkX = chunk->X;
+                voxel->chunkZ = chunk->Z;
+
+                voxel->localX = x;
+                voxel->localZ = z;
+                voxel->localY = y;
 
                 if (isAir() == 1)
                 {
@@ -138,34 +143,47 @@ bool shouldChunkRender(double playerX, double playerZ) //Guck für den Chunk wo 
     double lastxChunk;
     double lastzChunk;
 
-    if (xChunk != lastxChunk)
+    if (xChunk != lastxChunk || zChunk != lastzChunk)
     {
-        ChunkLoader();
+        ChunkLoader(xChunk, zChunk);
     }
 
     lastxChunk = playerX / 16;
     lastzChunk = playerZ / 16;
 }
 
-void ChunkLoader() //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
+void ChunkLoader(double X, double Y) //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
 {
     FILE* fptr;
 
     fptr = fopen("world.dat", "r");
 
     //Chunk
-    Chunk* chunk;
-    Voxel voxel;
+    Chunk** loadedChunks;
+    Voxel* voxel;
 
-    chunk = (Chunk*)malloc(sizeof(Chunk));
+    loadedChunks = (Chunk*)malloc((CHUNK_RENDER_DISTANCE*CHUNK_RENDER_DISTANCE) * sizeof(Chunk));
 
-    while (fread(&voxel, sizeof(voxel), 1, fptr) == 1)
+    int i = 0;
+    double lastChunkX, lastChunkZ = 0;
+    while (fread(voxel, sizeof(voxel), 1, fptr) == 1) //Problem: It's reading pointers insted of values
     {
-        printf("block: %d\n", voxel.blockTypeID);
+        loadedChunks[i]->ArrayX[i] = (Voxel*)malloc(sizeof(Voxel));
+        loadedChunks[i]->ArrayX[i] = voxel;
+
+        if (voxel->chunkX != lastChunkX || voxel->chunkZ != lastChunkZ)
+        {
+            loadedChunks[i/16] = (Chunk*)malloc(sizeof(Chunk));
+        }
+
+        i++;
+
     }
 
     fclose(fptr);
 }
+
+//Alle Chunks die am ende von eine gesetztes Pointer stehen werden geladen.
 
 void ChunkRenderCaller(unsigned int shaderProgram)
 {
