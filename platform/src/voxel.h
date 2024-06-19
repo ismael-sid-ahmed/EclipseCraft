@@ -11,6 +11,7 @@ typedef struct voxel
     double localX, localY, localZ;
 }Voxel;
 
+//Save all chunks into a single array, no different arrays for each axis
 typedef struct chunk
 {
     double X, Z;

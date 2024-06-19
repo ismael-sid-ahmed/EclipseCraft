@@ -91,21 +91,17 @@ Voxel* VoxelChunkGen(Chunk* chunk)
     chunk->ArrayY = (Voxel*)calloc(384, sizeof(Voxel)); //Gefährilch
     chunk->ArrayZ = (Voxel*)calloc(16, sizeof(Voxel)); //Gefährilch
 
-    for (int x = 0; x < 16; x++)
+    for (int y = 0; y < 384; y++)
     {
+        Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
+        for (int x = 0; x < 16; x++)
+        {
+            chunk->ArrayX[x] = voxel;
+        }
         for (int z = 0; z < 16; z++)
         {
-            for (int y = 0; y < 384; y++)
+            for (int x = 0; x < 16; x++)
             {
-                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
-
-                voxel->chunkX = chunk->X;
-                voxel->chunkZ = chunk->Z;
-
-                voxel->localX = x;
-                voxel->localZ = z;
-                voxel->localY = y;
-
                 if (isAir() == 1)
                 {
                     voxel->blockTypeID = 0;
@@ -117,15 +113,32 @@ Voxel* VoxelChunkGen(Chunk* chunk)
                     voxel->transparent = 0;
                 }
 
-                //chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
-                chunk->ArrayX[x] = voxel;
-                //chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
-                chunk->ArrayY[y] = voxel;
-                //chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
-                chunk->ArrayZ[z] = voxel;
+                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
+                
             }
         }
+
+        for (int z = 0; z < 16; z++)
+        {
+                voxel->chunkX = chunk->X;
+                voxel->chunkZ = chunk->Z;
+
+                voxel->localX = x;
+                voxel->localZ = z;
+                voxel->localY = y;
+
+            
+
+            //chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
+                
+            //chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
+            //chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
+            chunk->ArrayZ[z] = voxel;
+        }
+        chunk->ArrayY[y] = voxel;
     }
+
+
 }
 
 int isAir()
