@@ -61,23 +61,9 @@ void ChunkGen(int X, int Z)
     fptr = fopen("world.dat", "a");
 
     //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
-
-    //Problems: It's most probably writing pointers instead of values into the file.
-    for(int i = 0; i < 16; i++)
+    for(int i = 0; i < 98304; i++)
     {
-        fwrite(newChunk->ArrayX[i], sizeof(Voxel), 1, fptr);
-    }
-
-    //Y Array
-    for(int i = 0; i < 384; i++)
-    {
-        fwrite(newChunk->ArrayY[i], sizeof(Voxel), 1, fptr);
-    }
-
-    //Z Array
-    for(int i = 0; i < 16; i++)
-    {
-        fwrite(newChunk->ArrayZ[i], sizeof(Voxel), 1, fptr);
+        fwrite(newChunk->Array[i], sizeof(Voxel), 1, fptr);
     }
 
     fclose(fptr);
@@ -87,55 +73,37 @@ void ChunkGen(int X, int Z)
 
 Voxel* VoxelChunkGen(Chunk* chunk)
 {
-    chunk->ArrayX = (Voxel*)calloc(16, sizeof(Voxel)); //Gefährilch
-    chunk->ArrayY = (Voxel*)calloc(384, sizeof(Voxel)); //Gefährilch
-    chunk->ArrayZ = (Voxel*)calloc(16, sizeof(Voxel)); //Gefährilch
+    chunk->Array = (Voxel**)malloc(98304*sizeof(Voxel)); //Gefährilch
+
+    int gen_voxel_num = 0;
 
     for (int y = 0; y < 384; y++)
     {
-        Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
-        for (int x = 0; x < 16; x++)
-        {
-            chunk->ArrayX[x] = voxel;
-        }
         for (int z = 0; z < 16; z++)
         {
             for (int x = 0; x < 16; x++)
             {
+                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
+
                 if (isAir() == 1)
                 {
                     voxel->blockTypeID = 0;
-                    voxel->transparent = 1;
                 }
                 else
                 {
                     voxel->blockTypeID = 1;
-                    voxel->transparent = 0;
                 }
-
-                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
-                
-            }
-        }
-
-        for (int z = 0; z < 16; z++)
-        {
-                voxel->chunkX = chunk->X;
-                voxel->chunkZ = chunk->Z;
 
                 voxel->localX = x;
                 voxel->localZ = z;
                 voxel->localY = y;
+          
+                chunk->Array[gen_voxel_num] = (Voxel*)malloc(sizeof(Voxel));
+                chunk->Array[gen_voxel_num] = voxel;
 
-            
-
-            //chunk->ArrayX[x] = (Voxel*)malloc(sizeof(Voxel));
-                
-            //chunk->ArrayY[y] = (Voxel*)malloc(sizeof(Voxel));
-            //chunk->ArrayZ[z] = (Voxel*)malloc(sizeof(Voxel));
-            chunk->ArrayZ[z] = voxel;
+                gen_voxel_num++;
+            }
         }
-        chunk->ArrayY[y] = voxel;
     }
 
 
@@ -186,21 +154,19 @@ void ChunkLoader(double X, double Z) //Lad alle benötigte Chunks hoch zum Arbei
     double lastChunk = -1;
     while (fread(voxel, sizeof(voxel), 1, fptr) == 1)
     {
-        printf("%d", i/16);
+        printf("%d\n", i/16);
 
         if (i/16 != lastChunk) //
         {
             calloc(loadedChunks, (i/16));
             loadedChunks[i/16] = (Chunk*)malloc(sizeof(Chunk));
-            loadedChunks[i/16]->ArrayX = (Voxel*)malloc(16*sizeof(Voxel));
-            loadedChunks[i/16]->ArrayY = (Voxel*)malloc(384*sizeof(Voxel));
-            loadedChunks[i/16]->ArrayZ = (Voxel*)malloc(16*sizeof(Voxel));
+            loadedChunks[i/16]->Array = (Voxel*)malloc(98304*sizeof(Voxel));
         }
 
-        if (loadedChunks[i/16]->ArrayX[i])
+        if (loadedChunks[i/16]->Array[i])
 
-        loadedChunks[i/16]->ArrayX[i] = (Voxel*)malloc(sizeof(Voxel)); //Memory Leak. Even though the memory gets dynamically allocated, it has a limit
-        loadedChunks[i/16]->ArrayX[i] = voxel;
+        loadedChunks[i/16]->Array[i] = (Voxel*)malloc(sizeof(Voxel)); //Memory Leak. Even though the memory gets dynamically allocated, it has a limit
+        loadedChunks[i/16]->Array[i] = voxel;
 
         lastChunk = i/16;
         i++;

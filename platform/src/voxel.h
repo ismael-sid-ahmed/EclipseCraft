@@ -6,8 +6,6 @@
 typedef struct voxel
 {
     int blockTypeID;
-    int transparent;
-    double chunkX, chunkZ;
     double localX, localY, localZ;
 }Voxel;
 
@@ -15,9 +13,7 @@ typedef struct voxel
 typedef struct chunk
 {
     double X, Z;
-    Voxel** ArrayX;
-    Voxel** ArrayY;
-    Voxel** ArrayZ;
+    Voxel** Array;
 }Chunk;
 
 typedef struct chunkArr
