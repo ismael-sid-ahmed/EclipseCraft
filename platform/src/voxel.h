@@ -12,6 +12,7 @@ typedef struct voxel
 typedef struct chunk
 {
     Voxel[98304] Array;
+    int X, Y;
 }Chunk;
 
 typedef struct chunkArr
