@@ -51,8 +51,6 @@ void ChunkGenCaller(int X, int Z)
 void ChunkGen(int X, int Z)
 {
     Chunk* newChunk = (Chunk*)malloc(sizeof(Chunk));
-    newChunk->X = X;
-    newChunk->Z = Z;
 
     FILE* fptr;
 
@@ -73,8 +71,7 @@ void ChunkGen(int X, int Z)
 
 Voxel* VoxelChunkGen(Chunk* chunk)
 {
-    chunk->Array = (Voxel**)malloc(98304*sizeof(Voxel)); //Gefährilch
-
+    //Remove double pointer, and get all chunks and voxels into a single array of fixed size 98304. I don't need to use malloc
     int gen_voxel_num = 0;
 
     for (int y = 0; y < 384; y++)
@@ -83,24 +80,14 @@ Voxel* VoxelChunkGen(Chunk* chunk)
         {
             for (int x = 0; x < 16; x++)
             {
-                Voxel* voxel = (Voxel*)malloc(sizeof(Voxel));
-
                 if (isAir() == 1)
                 {
-                    voxel->blockTypeID = 0;
+                    chunk->Array[gen_voxel_num]->blockTypeID = 0;
                 }
                 else
                 {
-                    voxel->blockTypeID = 1;
+                    chunk->Array[gen_voxel_num]->blockTypeID = 1;
                 }
-
-                voxel->localX = x;
-                voxel->localZ = z;
-                voxel->localY = y;
-          
-                chunk->Array[gen_voxel_num] = (Voxel*)malloc(sizeof(Voxel));
-                chunk->Array[gen_voxel_num] = voxel;
-
                 gen_voxel_num++;
             }
         }
