@@ -6,7 +6,7 @@
 typedef struct voxel
 {
     int blockTypeID;
-    double localX, localY, localZ;
+    int localX, localY, localZ;
 }Voxel;
 
 //Save all chunks into a single array, no different arrays for each axis
