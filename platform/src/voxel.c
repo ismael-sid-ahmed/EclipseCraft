@@ -51,6 +51,8 @@ void ChunkGenCaller(int X, int Z)
 void ChunkGen(int X, int Z)
 {
     Chunk* newChunk = (Chunk*)malloc(sizeof(Chunk));
+    newChunk->X = X;
+    newChunk->Z = Z;
 
     FILE* fptr;
 
@@ -90,6 +92,7 @@ Voxel* VoxelChunkGen(Chunk* chunk)
                 }
                 gen_voxel_num++;
             }
+            //Formula for offset: (Layer: (x+z)*chunk_coords)
         }
     }
 
