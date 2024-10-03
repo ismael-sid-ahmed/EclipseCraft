@@ -11,22 +11,17 @@ typedef struct voxel
 //Save all chunks into a single array, no different arrays for each axis
 typedef struct chunk
 {
-    Voxel[98304] Array;
+    int voxel[98304];
     int X, Z;
 }Chunk;
 
-typedef struct chunkArr
-{
-    size_t size;
-    Chunk* array;
-}ChunkArray;
 
-Voxel* VoxelChunkGen(Chunk* chunk);
+Voxel VoxelChunkGen(Chunk* chunk);
 int isAir();
 
 void ChunkGenCaller(int X, int Z);
 void ChunkGen(int X, int Z);
-void ChunkRender(int X, int Z);
+void BlockRender(int X, int Z, int Y, unsigned int shaderProgram);
 void InitialChunkGenCaller();
 void ChunkRenderCaller(unsigned int shaderProgram);
-void ChunkLoader();
+void ChunkLoader(double X, double Z, unsigned int shaderProgram);

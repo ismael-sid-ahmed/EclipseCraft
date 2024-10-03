@@ -103,9 +103,7 @@ int main()
     glUseProgram(shaderProgram.ID);
 
     glUniform1i(glGetUniformLocation(&texture, "texture1"), 0);
-
     InitialChunkGenCaller();
-    ChunkLoader();
 
     while (!glfwWindowShouldClose(window))
     {   
@@ -126,7 +124,7 @@ int main()
         //Chunk rendering
         glBindVertexArray(VAO);
 
-        ChunkRenderCaller(shaderProgram.ID);
+        ChunkLoader(0, 0, shaderProgram.ID);
 
         /*
         //Debug UI

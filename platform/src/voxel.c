@@ -28,6 +28,7 @@
 void InitialChunkGenCaller()
 {
     FILE* fptr;
+    
 
     fptr = fopen("world.dat", "w");
     fprintf(fptr, "");
@@ -50,30 +51,10 @@ void ChunkGenCaller(int X, int Z)
 
 void ChunkGen(int X, int Z)
 {
-    Chunk* newChunk = (Chunk*)malloc(sizeof(Chunk));
-    newChunk->X = X;
-    newChunk->Z = Z;
+    Chunk newChunk;
 
     FILE* fptr;
 
-    VoxelChunkGen(newChunk);
-
-    fptr = fopen("world.dat", "a");
-
-    //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
-    for(int i = 0; i < 98304; i++)
-    {
-        fwrite(newChunk->Array[i], sizeof(Voxel), 1, fptr);
-    }
-
-    fclose(fptr);
-
-    free(newChunk);
-}
-
-Voxel* VoxelChunkGen(Chunk* chunk)
-{
-    //Remove double pointer, and get all chunks and voxels into a single array of fixed size 98304. I don't need to use malloc
     int gen_voxel_num = 0;
 
     for (int y = 0; y < 384; y++)
@@ -84,11 +65,11 @@ Voxel* VoxelChunkGen(Chunk* chunk)
             {
                 if (isAir() == 1)
                 {
-                    chunk->Array[gen_voxel_num]->blockTypeID = 0;
+                    newChunk.voxel[gen_voxel_num] = 0;
                 }
                 else
                 {
-                    chunk->Array[gen_voxel_num]->blockTypeID = 1;
+                    newChunk.voxel[gen_voxel_num] = 1;
                 }
                 gen_voxel_num++;
             }
@@ -96,14 +77,30 @@ Voxel* VoxelChunkGen(Chunk* chunk)
         }
     }
 
+    newChunk.X = X;
+    newChunk.Z = Z;
+
+    fptr = fopen("world.dat", "a");
+
+    //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
+    fwrite(&newChunk.X, sizeof(int), 1, fptr);
+    fwrite(&newChunk.Z, sizeof(int), 1, fptr);
+    fwrite(&newChunk.voxel, sizeof(Voxel), 98304, fptr);
+
+    fclose(fptr);
+}
+
+Voxel VoxelChunkGen(Chunk* chunk)
+{
+    //Remove double pointer, and get all chunks and voxels into a single array of fixed size 98304. I don't need to use malloc
+    
+
 
 }
 
 int isAir()
 {
-    int seed = time(NULL);
-    srand(seed);
-
+    rand();
     return rand() % 2;
 }
 
@@ -116,50 +113,38 @@ bool shouldChunkRender(double playerX, double playerZ) //Guck für den Chunk wo 
 
     if (xChunk != lastxChunk || zChunk != lastzChunk)
     {
-        ChunkLoader(xChunk, zChunk);
     }
 
     lastxChunk = playerX / 16;
     lastzChunk = playerZ / 16;
 }
 
-void ChunkLoader(double X, double Z) //Lad alle benötigte Chunks hoch zum Arbeitsspeicher
+void ChunkLoader(double X, double Z, unsigned int shaderProgram)
 {
     FILE* fptr;
+    Chunk loadedChunk;
 
     fptr = fopen("world.dat", "r");
 
-    //Chunk
-    Chunk** loadedChunks;
-    Voxel* voxel;
-
-    voxel = (Voxel*)malloc(sizeof(Voxel));
-
-    loadedChunks = (Chunk*)malloc(sizeof(Chunk));
-    
-    //Array initializations
-    loadedChunks[0] = (Chunk*)malloc(sizeof(Chunk));
+    //Jeder 256 Array-Elemente bestehen einen Ebene
 
     int i = 0;
-    double lastChunk = -1;
-    while (fread(voxel, sizeof(voxel), 1, fptr) == 1)
+    fread(&loadedChunk.voxel, sizeof(Voxel), 98304, fptr);
+    
+    int voxel_count = 0;
+    for (int y = 0; y < 384; y++)
     {
-        printf("%d\n", i/16);
-
-        if (i/16 != lastChunk) //
+        for (int x = 0; x < 16; x++)
         {
-            calloc(loadedChunks, (i/16));
-            loadedChunks[i/16] = (Chunk*)malloc(sizeof(Chunk));
-            loadedChunks[i/16]->Array = (Voxel*)malloc(98304*sizeof(Voxel));
+            for (int z = 0; z < 16; z++)
+            {
+                if (loadedChunk.voxel[voxel_count] == 1)
+                {
+                    BlockRender(X+x, Z+z, y, shaderProgram);
+                }
+                voxel_count++;
+            }
         }
-
-        if (loadedChunks[i/16]->Array[i])
-
-        loadedChunks[i/16]->Array[i] = (Voxel*)malloc(sizeof(Voxel)); //Memory Leak. Even though the memory gets dynamically allocated, it has a limit
-        loadedChunks[i/16]->Array[i] = voxel;
-
-        lastChunk = i/16;
-        i++;
     }
 
     fclose(fptr);
@@ -167,21 +152,19 @@ void ChunkLoader(double X, double Z) //Lad alle benötigte Chunks hoch zum Arbei
 
 //Alle Chunks die am ende von eine gesetztes Pointer stehen werden geladen.
 
-void ChunkRenderCaller(unsigned int shaderProgram)
+void ChunkRenderCaller(unsigned int shaderProgram, int playerX, int playerZ)
 {
-    //Jeder Mal, dass den Spieler zu einem anderem Chunk bewegt wird den ChunkLoader Funktion angeruft.
-
-
+    
 }
 
-void ChunkRender(int X, int Z, unsigned int shaderProgram)
+void BlockRender(int X, int Z, int Y, unsigned int shaderProgram)
 {
     mat4 model;
     glm_mat4_identity(model);
-    glm_translate(model, (vec3){0, 0, 0});
+    glm_translate(model, (vec3){X, Y, Z});
                 
     int modelLoc = glGetUniformLocation(shaderProgram, "model");
     glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
 
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);   
 }
