@@ -15,13 +15,15 @@ typedef struct chunk
     int X, Z;
 }Chunk;
 
-
-Voxel VoxelChunkGen(Chunk* chunk);
+Chunk* chunkList;
+int n_chunks_m;
 int isAir();
 
+int chunksInMemoryRecall();
 void ChunkGenCaller(int X, int Z);
 void ChunkGen(int X, int Z);
-void BlockRender(int X, int Z, int Y, unsigned int shaderProgram);
-void InitialChunkGenCaller();
+void BlockRender(int X, int Z, int Y, unsigned int shaderProgram, Voxel Voxel);
+void RegionGen();
 void ChunkRenderCaller(unsigned int shaderProgram);
-void ChunkLoader(double X, double Z, unsigned int shaderProgram);
+void ChunkLoader(int X, int Z, unsigned int shaderProgram);
+void ChunkRender();

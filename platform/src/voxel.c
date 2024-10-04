@@ -25,10 +25,9 @@
 
 
 
-void InitialChunkGenCaller()
+void RegionGen(int X, int Z)
 {
     FILE* fptr;
-    
 
     fptr = fopen("world.dat", "w");
     fprintf(fptr, "");
@@ -90,14 +89,6 @@ void ChunkGen(int X, int Z)
     fclose(fptr);
 }
 
-Voxel VoxelChunkGen(Chunk* chunk)
-{
-    //Remove double pointer, and get all chunks and voxels into a single array of fixed size 98304. I don't need to use malloc
-    
-
-
-}
-
 int isAir()
 {
     rand();
@@ -119,7 +110,7 @@ bool shouldChunkRender(double playerX, double playerZ) //Guck für den Chunk wo 
     lastzChunk = playerZ / 16;
 }
 
-void ChunkLoader(double X, double Z, unsigned int shaderProgram)
+void ChunkLoader(int X, int Z, unsigned int shaderProgram)
 {
     FILE* fptr;
     Chunk loadedChunk;
@@ -127,44 +118,49 @@ void ChunkLoader(double X, double Z, unsigned int shaderProgram)
     fptr = fopen("world.dat", "r");
 
     //Jeder 256 Array-Elemente bestehen einen Ebene
+    fread(&loadedChunk.X, sizeof(int), 1, fptr);
+    fread(&loadedChunk.Z, sizeof(int), 1, fptr);
 
-    int i = 0;
-    fread(&loadedChunk.voxel, sizeof(Voxel), 98304, fptr);
-    
-    int voxel_count = 0;
+    while (loadedChunk.X != X || loadedChunk.Z != Z)
+    {
+        fread(&loadedChunk.X, sizeof(int), 1, fptr);
+        fread(&loadedChunk.Z, sizeof(int), 1, fptr);
+        fread(&loadedChunk.voxel, sizeof(Voxel), 98304, fptr);
+    }
+    chunkList[n_chunks_m] = loadedChunk;
+    n_chunks_m++;
+
+    fclose(fptr);
+}
+
+void ChunkRender(unsigned int shaderProgram, Chunk chunk)
+{
+    int n = 0;
     for (int y = 0; y < 384; y++)
     {
         for (int x = 0; x < 16; x++)
         {
             for (int z = 0; z < 16; z++)
             {
-                if (loadedChunk.voxel[voxel_count] == 1)
-                {
-                    BlockRender(X+x, Z+z, y, shaderProgram);
-                }
-                voxel_count++;
+                //BlockRender(x, z, y, shaderProgram, chunk.voxel);
+                n++;
             }
         }
     }
-
-    fclose(fptr);
 }
 
-//Alle Chunks die am ende von eine gesetztes Pointer stehen werden geladen.
-
-void ChunkRenderCaller(unsigned int shaderProgram, int playerX, int playerZ)
+void BlockRender(int X, int Z, int Y, unsigned int shaderProgram, Voxel Voxel)
 {
-    
-}
+    if (Voxel.blockTypeID != 0)
+    {
+        printf("%d X %d Y %d Z has rendered\n", X, Y, Z);
+        mat4 model;
+        glm_mat4_identity(model);
+        glm_translate(model, (vec3){X, Y, Z});
 
-void BlockRender(int X, int Z, int Y, unsigned int shaderProgram)
-{
-    mat4 model;
-    glm_mat4_identity(model);
-    glm_translate(model, (vec3){X, Y, Z});
-                
-    int modelLoc = glGetUniformLocation(shaderProgram, "model");
-    glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
+        int modelLoc = glGetUniformLocation(shaderProgram, "model");
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, model);
 
-    glDrawArrays(GL_TRIANGLES, 0, 36);   
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }   
 }
