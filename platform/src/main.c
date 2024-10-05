@@ -6,7 +6,7 @@
 #include "cglm.h"
 #include "camera.h"
 
-#include "voxel.h"
+#include "world.h"
 
 #define GL_GLEXT_PROTOTYPES
 
@@ -103,6 +103,7 @@ int main()
     glUseProgram(shaderProgram.ID);
 
     glUniform1i(glGetUniformLocation(&texture, "texture1"), 0);
+    //init_chunk_list();
     RegionGen();
 
     while (!glfwWindowShouldClose(window))

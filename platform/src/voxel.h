@@ -4,11 +4,6 @@
 */
 
 //Save all chunks into a single array, no different arrays for each axis
-typedef struct chunk
-{
-    short voxel[98304];
-    int X, Z;
-}Chunk;
 
 int isAir();
 

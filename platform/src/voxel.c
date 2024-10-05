@@ -1,4 +1,4 @@
-#include "voxel.h"
+#include "world.h"
 
 #include "stdio.h"
 #include "stdlib.h"
@@ -9,11 +9,6 @@
 
 #include "cglm.h"
 #include <errno.h>
-
-#define CHUNK_RENDER_DISTANCE 4
-#define MAX_CHUNKS 32
-#define SPAWN_CHUNK_RADIUS 16
-#define INITIAL_CHUNK_ARRAY_SIZE 2
 
 /*Design:
     The chunks will get generated with their respective
@@ -117,7 +112,6 @@ void ChunkLoader(int X, int Z, unsigned int shaderProgram)
 
     fptr = fopen("world.dat", "r");
 
-    //Jeder 256 Array-Elemente bestehen einen Ebene
     fread(&loadedChunk.X, sizeof(int), 1, fptr);
     fread(&loadedChunk.Z, sizeof(int), 1, fptr);
 
@@ -127,6 +121,10 @@ void ChunkLoader(int X, int Z, unsigned int shaderProgram)
         fread(&loadedChunk.Z, sizeof(int), 1, fptr);
         fread(&loadedChunk.voxel, sizeof(unsigned __int8), 98304, fptr);
     }
+
+    //Lad alles in die Arbeitsspeicher hoch
+    list[chunks_m] = loadedChunk;
+    chunks_m++;
 
     fclose(fptr);
 }
