@@ -25,6 +25,9 @@
     <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\platform\src\voxel.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\platform\src\world.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Ismael\Desktop\Visual Studio Projects\EclipseCraft\CMakeLists.txt" />

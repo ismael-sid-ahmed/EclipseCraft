@@ -84,7 +84,7 @@ void ChunkGen(int X, int Z)
     //Geh durch den Pointers bis die Dateien erreicht werden. Danach könnte das gespeichert werden.
     fwrite(&newChunk.X, sizeof(int), 1, fptr);
     fwrite(&newChunk.Z, sizeof(int), 1, fptr);
-    fwrite(&newChunk.voxel, sizeof(Voxel), 98304, fptr);
+    fwrite(&newChunk.voxel, sizeof(unsigned __int8), 98304, fptr);
 
     fclose(fptr);
 }
@@ -125,10 +125,8 @@ void ChunkLoader(int X, int Z, unsigned int shaderProgram)
     {
         fread(&loadedChunk.X, sizeof(int), 1, fptr);
         fread(&loadedChunk.Z, sizeof(int), 1, fptr);
-        fread(&loadedChunk.voxel, sizeof(Voxel), 98304, fptr);
+        fread(&loadedChunk.voxel, sizeof(unsigned __int8), 98304, fptr);
     }
-    chunkList[n_chunks_m] = loadedChunk;
-    n_chunks_m++;
 
     fclose(fptr);
 }
@@ -149,9 +147,9 @@ void ChunkRender(unsigned int shaderProgram, Chunk chunk)
     }
 }
 
-void BlockRender(int X, int Z, int Y, unsigned int shaderProgram, Voxel Voxel)
+void BlockRender(int X, int Z, int Y, unsigned int shaderProgram, unsigned __int8 Voxel)
 {
-    if (Voxel.blockTypeID != 0)
+    if (Voxel != 0)
     {
         printf("%d X %d Y %d Z has rendered\n", X, Y, Z);
         mat4 model;

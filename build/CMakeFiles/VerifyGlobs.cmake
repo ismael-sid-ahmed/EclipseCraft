@@ -22,6 +22,7 @@ set(OLD_GLOB
   "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/platform/src/main.c"
   "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/platform/src/texture.c"
   "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/platform/src/voxel.c"
+  "C:/Users/Ismael/Desktop/Visual Studio Projects/EclipseCraft/platform/src/world.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
